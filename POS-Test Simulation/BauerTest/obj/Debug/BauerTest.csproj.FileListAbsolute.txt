@@ -4,3 +4,6 @@ C:\Users\Daniel\Desktop\BauerTest4\BauerTest\bin\Debug\BauerTest.pdb
 C:\Users\Daniel\Desktop\BauerTest4\BauerTest\obj\Debug\BauerTest.csprojResolveAssemblyReference.cache
 C:\Users\Daniel\Desktop\BauerTest4\BauerTest\obj\Debug\BauerTest.exe
 C:\Users\Daniel\Desktop\BauerTest4\BauerTest\obj\Debug\BauerTest.pdb
+D:\Gitrepos\POS-Wochenaufgaben\POS-Test Simulation\BauerTest\bin\Debug\BauerTest.exe.config
+D:\Gitrepos\POS-Wochenaufgaben\POS-Test Simulation\BauerTest\obj\Debug\BauerTest.exe
+D:\Gitrepos\POS-Wochenaufgaben\POS-Test Simulation\BauerTest\obj\Debug\BauerTest.pdb
