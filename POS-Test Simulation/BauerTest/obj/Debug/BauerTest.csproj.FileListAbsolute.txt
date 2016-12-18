@@ -1,0 +1,6 @@
+C:\Users\Daniel\Desktop\BauerTest4\BauerTest\bin\Debug\BauerTest.exe.config
+C:\Users\Daniel\Desktop\BauerTest4\BauerTest\bin\Debug\BauerTest.exe
+C:\Users\Daniel\Desktop\BauerTest4\BauerTest\bin\Debug\BauerTest.pdb
+C:\Users\Daniel\Desktop\BauerTest4\BauerTest\obj\Debug\BauerTest.csprojResolveAssemblyReference.cache
+C:\Users\Daniel\Desktop\BauerTest4\BauerTest\obj\Debug\BauerTest.exe
+C:\Users\Daniel\Desktop\BauerTest4\BauerTest\obj\Debug\BauerTest.pdb
