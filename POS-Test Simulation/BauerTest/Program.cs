@@ -29,11 +29,11 @@ namespace BauerTest
             {
                 Console.WriteLine("Schlange bei " + zeit + " Sekunden: " + schlange);
                 zeit = zeit - 30;
-                if(zeit <= 10*60 && zeit >= 5 * 20)
+                if(zeit <= 10*60 && zeit >= 5 * 60)
                 {
                     schlange++;
                 }
-                else if(zeit < 5 * 20)
+                else if(zeit < 5 * 60)
                 {
                     schlange--;
                 }

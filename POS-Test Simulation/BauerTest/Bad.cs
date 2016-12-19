@@ -23,12 +23,14 @@ namespace BauerTest
         }
         public void BadTick()
         {
-            if(geradedran == null)
+            if (geradedran != null)
+            {
+                geradedran = Schlange[geradedran.id1 + 1];
+            }
+            else
             {
                 geradedran = Schlange[0];
             }
-            geradedran = Schlange[geradedran.id1 + 1];
-            
             Random rnd = new Random();
             geradedran.dauer = rnd.Next(10 * 60, 30 * 60); //Zwischen 10 und 30 min
             for (int i = 0; i < geradedran.dauer; i++)
@@ -36,11 +38,11 @@ namespace BauerTest
                 zeit = zeit - 1;
                 if(zeit % 60 == 0)
                 {
-                    if (zeit <= 10 * 60 && zeit >= 5 * 20)
+                    if (zeit <= 15 * 60 && zeit >= 5 * 60)
                     {
                         Schlange.Add(new Schwimmer());
                     }
-                    else if (zeit < 5 * 20)
+                    else if (zeit < 5 * 60)
                     {
                         Schlange.Remove(Schwimmer.getHighestSchwimmer(Schlange));
                     }
@@ -51,8 +53,6 @@ namespace BauerTest
                 }
                 Console.WriteLine(Schlange.Count);
             }
-            //TODO tick fix
-            
         }
     }
 }
