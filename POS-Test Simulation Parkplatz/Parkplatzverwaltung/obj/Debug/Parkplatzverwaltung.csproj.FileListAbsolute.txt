@@ -1,0 +1,6 @@
+C:\Users\Daniel\Desktop\BauerTest5\Parkplatzverwaltung\bin\Debug\Parkplatzverwaltung.exe.config
+C:\Users\Daniel\Desktop\BauerTest5\Parkplatzverwaltung\bin\Debug\Parkplatzverwaltung.exe
+C:\Users\Daniel\Desktop\BauerTest5\Parkplatzverwaltung\bin\Debug\Parkplatzverwaltung.pdb
+C:\Users\Daniel\Desktop\BauerTest5\Parkplatzverwaltung\obj\Debug\Parkplatzverwaltung.csprojResolveAssemblyReference.cache
+C:\Users\Daniel\Desktop\BauerTest5\Parkplatzverwaltung\obj\Debug\Parkplatzverwaltung.exe
+C:\Users\Daniel\Desktop\BauerTest5\Parkplatzverwaltung\obj\Debug\Parkplatzverwaltung.pdb
