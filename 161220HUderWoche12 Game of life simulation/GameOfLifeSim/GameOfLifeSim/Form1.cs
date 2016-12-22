@@ -16,49 +16,45 @@ namespace GameOfLifeSim
         {
             InitializeComponent();
         }
-        private Panel[,] _chessBoardPanels;
+        private Panel[,] Panels;
+        private Color tot = Color.Gray;
+        private Color leben = Color.LightGreen;
         private void Form1_Load(object sender, EventArgs e)
         {
+            this.Text = "Game Of Life Simulator";
             const int tileSize = 40;
             const int gridSize = 20;
-            var clr1 = Color.DarkGray;
-            var clr2 = Color.White;
+            
 
-            // initialize the "chess board"
-            _chessBoardPanels = new Panel[gridSize, gridSize];
-
-            // double for loop to handle all rows and columns
+            // Setz das Array auf die Größe des spielfeldes
+            Panels = new Panel[gridSize, gridSize];
+            
             for (var n = 0; n < gridSize; n++)
             {
                 for (var m = 0; m < gridSize; m++)
                 {
-                    // create new Panel control which will be one 
-                    // chess board tile
                     var newPanel = new Panel
                     {
                         Size = new Size(tileSize, tileSize),
                         Location = new Point(tileSize * n + 10, tileSize * m + 10)
                     };
-
-                    // add to Form's Controls so that they show up
+                    //Damit wird das im Forms angezeigt
                     Controls.Add(newPanel);
-
-                    // add to our 2d array of panels for future use
-                    _chessBoardPanels[n, m] = newPanel;
-
-                    // color the backgrounds
-                    if (n % 2 == 0)
-                        newPanel.BackColor = m % 2 != 0 ? clr1 : clr2;
-                    else
-                        newPanel.BackColor = m % 2 != 0 ? clr2 : clr1;
+                    //neues panel hinzufügen
+                    Panels[n, m] = newPanel;
+                    //Alle Panels zum beginn auf Tot setzen
+                    newPanel.BackColor = tot;
                 }
             }
             
         }
-
-        private new void SizeChanged(object sender, EventArgs e)
+        private void randomPlayground()
         {
-            this.Text = this.Size.ToString();
+            //TODO: Spread 200 living cells around the map randomly
+        }
+        private void startbutton_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
