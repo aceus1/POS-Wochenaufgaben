@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.startbutton = new System.Windows.Forms.Button();
+            this.tickbutton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // startbutton
@@ -41,12 +42,23 @@
             this.startbutton.UseVisualStyleBackColor = true;
             this.startbutton.Click += new System.EventHandler(this.startbutton_Click);
             // 
+            // tickbutton
+            // 
+            this.tickbutton.Location = new System.Drawing.Point(126, 838);
+            this.tickbutton.Name = "tickbutton";
+            this.tickbutton.Size = new System.Drawing.Size(75, 23);
+            this.tickbutton.TabIndex = 1;
+            this.tickbutton.Text = "Tick";
+            this.tickbutton.UseVisualStyleBackColor = true;
+            this.tickbutton.Click += new System.EventHandler(this.tickbutton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(826, 873);
+            this.Controls.Add(this.tickbutton);
             this.Controls.Add(this.startbutton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Form1";
@@ -59,6 +71,7 @@
         #endregion
 
         private System.Windows.Forms.Button startbutton;
+        private System.Windows.Forms.Button tickbutton;
     }
 }
 

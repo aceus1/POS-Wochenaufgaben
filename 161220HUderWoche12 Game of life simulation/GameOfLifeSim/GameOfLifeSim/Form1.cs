@@ -50,11 +50,137 @@ namespace GameOfLifeSim
         }
         private void randomPlayground()
         {
-            //TODO: Spread 200 living cells around the map randomly
+            int count = 0;
+            Random rnd = new Random();
+            for (int i = 0; i < 200; i++)
+            {
+                int tmp1 = rnd.Next(0,20), tmp2 = rnd.Next(0,20);
+                if (Panels[tmp1, tmp2].BackColor == tot)
+                {
+                    Panels[tmp1, tmp2].BackColor = leben;
+                }
+                else
+                {
+                    i--;
+                    count++;
+                }
+                if (count > 400)
+                {
+                    break;
+                }
+            }
+        }
+        private int anzLebenNachbar(int x, int y) //Gibt die Anzahl der lebenden Nachbarzellen zurück
+        {
+            int countLeben = 0;
+            if (y + 1 < Panels.GetLength(1))
+            {
+                //Drüber
+                if (Panels[x, y + 1].BackColor == leben)
+                {
+                    countLeben++;
+                }
+
+                if (x + 1 < Panels.GetLength(0))
+                {
+                    //Rechts Oben
+                    if (Panels[x + 1, y + 1].BackColor == leben)
+                    {
+                        countLeben++;
+                    }
+                }
+                if (x - 1 >= 0)
+                {
+                    //Links Oben
+                    if (Panels[x - 1, y + 1].BackColor == leben)
+                    {
+                        countLeben++;
+                    }
+                    
+                }
+            }
+            if (y - 1 >= 0)
+            {
+                //Darunter
+                if (Panels[x, y - 1].BackColor == leben)
+                {
+                    countLeben++;
+                }
+
+                if (x + 1 < Panels.GetLength(0))
+                {
+                    //Rechts Darunter
+                    if (Panels[x + 1, y - 1].BackColor == leben)
+                    {
+                        countLeben++;
+                    }
+                }
+                if (x - 1 >= 0)
+                {
+                    //Links Darunter
+                    if (Panels[x - 1, y - 1].BackColor == leben)
+                    {
+                        countLeben++;
+                    }
+
+                }
+            }
+            if (x - 1 >= 0)
+            {
+                //Links
+                if (Panels[x - 1, y].BackColor == leben)
+                {
+                    countLeben++;
+                }
+            }
+            if (x + 1 < Panels.GetLength(0))
+            {
+                //Rechts
+                if (Panels[x + 1, y].BackColor == leben)
+                {
+                    countLeben++;
+                }
+            }
+            return countLeben;
+        }
+        private List<Panel> checkpanels()
+        {
+            List<Panel> newChangingPanels = new List<Panel>();
+            for (int x = 0; x < Panels.GetLength(0) ; x++)
+            {
+                for (int y = 0; y < Panels.GetLength(1); y++)
+                {
+                    #region eine tote Zelle, die 3 Nachbarn hat, wird lebendig
+                    if (Panels[x,y].BackColor == tot && anzLebenNachbar(x,y) == 3)
+                    {
+                        newChangingPanels.Add(Panels[x, y]);
+                    }
+                    #endregion
+                    #region jede lebende Zelle, die keinen oder nur einen Nachbarn hat, stirbt(einsam)
+                    if (Panels[x, y].BackColor == leben && (anzLebenNachbar(x, y) >= 0 && anzLebenNachbar(x,y) <= 1))
+                    {
+                        newChangingPanels.Add(Panels[x, y]);
+                    }
+                    #endregion
+                    #region jede lebende Zelle, die 4 oder mehr Nachbarn hat, stirbt (überbevölkert)
+                    if (Panels[x,y].BackColor == leben && anzLebenNachbar(x,y) >= 4)
+                    {
+                        newChangingPanels.Add(Panels[x, y]);
+                    }
+                    #endregion
+
+                }
+            }
+            return newChangingPanels;
         }
         private void startbutton_Click(object sender, EventArgs e)
         {
-            
+            randomPlayground();
+        }
+
+        private void tickbutton_Click(object sender, EventArgs e)
+        {
+            checkpanels();//TODO: Panels abarbeiten
         }
     }
 }
