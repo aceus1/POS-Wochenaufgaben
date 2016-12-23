@@ -19,6 +19,7 @@ namespace GameOfLifeSim
         private Panel[,] Panels;
         private Color tot = Color.Gray;
         private Color leben = Color.LightGreen;
+        
         private void Form1_Load(object sender, EventArgs e)
         {
             this.Text = "Game Of Life Simulator";
@@ -26,7 +27,6 @@ namespace GameOfLifeSim
             const int gridSize = 20;
             ticktimer.Enabled = false;
             timerzeitbox.Text = "10";
-
             // Setz das Array auf die Größe des spielfeldes
             Panels = new Panel[gridSize, gridSize];
             
@@ -41,6 +41,7 @@ namespace GameOfLifeSim
                     };
                     //Damit wird das im Forms angezeigt
                     Controls.Add(newPanel);
+                    newPanel.Click += NewPanel_Click;
                     //neues panel hinzufügen
                     Panels[n, m] = newPanel;
                     //Alle Panels zum beginn auf Tot setzen
@@ -49,6 +50,13 @@ namespace GameOfLifeSim
             }
             
         }
+
+        private void NewPanel_Click(object sender, EventArgs e)
+        {
+            Panel tmp = (Panel)sender;
+            tmp.BackColor = leben;
+        }
+
         private void randomPlayground()
         {
             int count = 0;
