@@ -24,7 +24,8 @@ namespace GameOfLifeSim
             this.Text = "Game Of Life Simulator";
             const int tileSize = 40;
             const int gridSize = 20;
-            
+            ticktimer.Enabled = false;
+            timerzeitbox.Text = "10";
 
             // Setz das Array auf die Größe des spielfeldes
             Panels = new Panel[gridSize, gridSize];
@@ -173,6 +174,21 @@ namespace GameOfLifeSim
             }
             return newChangingPanels;
         }
+        public void tick()//Ein tick nach Delta(T)
+        {
+            List<Panel> tmp = checkpanels();
+            for (int i = 0; i < tmp.Count; i++)
+            {
+                if (tmp[i].BackColor == tot)
+                {
+                    tmp[i].BackColor = leben;
+                }
+                else
+                {
+                    tmp[i].BackColor = tot;
+                }
+            }
+        }
         private void startbutton_Click(object sender, EventArgs e)
         {
             randomPlayground();
@@ -180,7 +196,37 @@ namespace GameOfLifeSim
 
         private void tickbutton_Click(object sender, EventArgs e)
         {
-            checkpanels();//TODO: Panels abarbeiten
+            tick();
+        }
+
+        private void ticktimer_Tick(object sender, EventArgs e)
+        {
+            tick();
+        }
+
+        private void timerzeitbox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                ticktimer.Interval = int.Parse(timerzeitbox.Text)*1000;
+                timerzeitbox.BackColor = Color.White;
+            }
+            catch (Exception)
+            {
+                timerzeitbox.BackColor = Color.Red;
+            }
+        }
+
+        private void startimerbutton_Click(object sender, EventArgs e)
+        {
+            ticktimer.Enabled = true;
+            ticktimer.Start();
+        }
+
+        private void stoptimerbutton_Click(object sender, EventArgs e)
+        {
+            ticktimer.Stop();
+            ticktimer.Enabled = false;   
         }
     }
 }
